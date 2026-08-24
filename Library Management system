@@ -1,0 +1,50 @@
+#include <stdio.h>
+
+struct Author
+{
+    char name[50];
+    char phone[15];
+};
+
+struct Book
+{
+    int id;
+    char title[50];
+    float price;
+    
+    // Nested structure
+    struct Author author;
+};
+
+int main()
+{
+    struct Book b;
+
+    printf("===== LIBRARY MANAGEMENT SYSTEM =====\n");
+
+    printf("Enter Book ID: ");
+    scanf("%d", &b.id);
+
+    printf("Enter Book Title: ");
+    scanf(" %[^\n]", b.title);
+
+    printf("Enter Book Price: ");
+    scanf("%f", &b.price);
+
+    printf("Enter Author Name: ");
+    scanf(" %[^\n]", b.author.name);
+
+    printf("Enter Author Phone: ");
+    scanf("%s", b.author.phone);
+
+    printf("\n===== BOOK DETAILS =====\n");
+    printf("Book ID      : %d\n", b.id);
+    printf("Book Title   : %s\n", b.title);
+    printf("Book Price   : %.2f\n", b.price);
+
+    printf("\n===== AUTHOR DETAILS =====\n");
+    printf("Author Name  : %s\n", b.author.name);
+    printf("Author Phone : %s\n", b.author.phone);
+
+    return 0;
+}
