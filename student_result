@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+char grade(float p)
+{
+    if(p >= 90) return 'A';
+    if(p >= 80) return 'B';
+    if(p >= 70) return 'C';
+    if(p >= 60) return 'D';
+    return 'F';
+}
+
+int main()
+{
+    int n, m, marks[10][5], total[10], top = 0;
+    char name[10][20];
+
+    printf("Enter students and subjects: ");
+    scanf("%d%d", &n, &m);
+
+    for(int i = 0; i < n; i++)
+    {
+        printf("Name: ");
+        scanf("%s", name[i]);
+
+        total[i] = 0;
+        for(int j = 0; j < m; j++)
+        {
+            scanf("%d", &marks[i][j]);
+            total[i] += marks[i][j];
+        }
+
+        if(total[i] > total[top])
+            top = i;
+    }
+
+    printf("\nRESULT\n");
+
+    for(int i = 0; i < n; i++)
+    {
+        float p = (float)total[i] / m;
+        printf("%s  Total=%d  Percentage=%.2f  Grade=%c\n",
+               name[i], total[i], p, grade(p));
+    }
+
+    printf("\nTopper: %s (%.2f%%)\n",
+           name[top], (float)total[top] / m);
+
+    return 0;
+}
