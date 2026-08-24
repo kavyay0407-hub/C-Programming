@@ -1,2 +1,2 @@
-# ATM-management-system
-A simple ATM management system implemented in C with balance inquiry, deposit, withdrawal, money transfer, and account details features.
+# C-Programming
+A collection of C programming projects demonstrating fundamental programming concepts and real-world applications.
